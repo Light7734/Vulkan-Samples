@@ -34,7 +34,7 @@ The information for indirect commands is provided by the struct `VkDrawIndexedIn
 
 In this sample, the scene is composed of a 16x16 grid of sub-meshes. One vertex buffer and one index buffer contain all the geometry information in the scene, and the draw calls are placed into a device-local buffer containing an array of `VkDrawIndexedIndirectCommand` commands. Each command contains the vertex offset, index offset, and index count. To control whether a sub-mesh is drawn, the instance count is set to either 0 or 1. Alternatively, the draw command could be completely removed from the array.
 
-If = device supports multi-draw indirect (`VkPhysicalDeviceFeatures2::bufferDeviceAddress`), then the entire array of draw commands can be executed through a single call to `VkDrawIndexedIndirectCommand`. Otherwise, each draw call must be executed through a separate call to `VkDrawIndexIndirectCommand`:
+If device supports multi-draw indirect (`VkPhysicalDeviceFeatures2::bufferDeviceAddress`), then the entire array of draw commands can be executed through a single call to `VkDrawIndexedIndirectCommand`. Otherwise, each draw call must be executed through a separate call to `VkDrawIndexIndirectCommand`:
 
 ```cpp
 // m_enable_mci: supports multiDrawIndirect
